@@ -388,8 +388,8 @@ const Checkout: React.FC<CheckoutProps> = ({ onComplete }) => {
           </form>
         </div>
 
-        <div className="w-full lg:w-[380px] flex flex-col font-['Outfit']">
-          <div className="flex-1 bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-[2.5rem] p-8 shadow-[0_20px_50px_rgba(0,0,0,0.3),inset_0_1px_1px_rgba(255,255,255,0.1)] relative overflow-hidden flex flex-col justify-between group/card">
+        <div className="w-full lg:w-[380px] flex flex-col">
+          <div className="flex-1 bg-white/[0.02] backdrop-blur-2xl border border-white/5 rounded-[2rem] p-8 shadow-2xl relative overflow-hidden flex flex-col justify-between group/card">
             {/* Metallic Shine Effect */}
             <div className="absolute -inset-[100%] bg-gradient-to-tr from-transparent via-white/[0.05] to-transparent pointer-events-none group-hover/card:animate-[shine_3s_infinite] rotate-45 transform"></div>
 
@@ -405,31 +405,31 @@ const Checkout: React.FC<CheckoutProps> = ({ onComplete }) => {
                 </div>
               ) : selectedPlan ? (
                 <>
-                  <div className="mt-8 mb-8 pb-8 border-b border-white/10">
+                  <div className="mt-8 mb-8 pb-8 border-b border-white/5">
                     <div className="flex items-center gap-3 mb-6">
-                      <h3 className="text-3xl font-bold text-white tracking-tight">{selectedPlan.name}</h3>
-                      <span className="bg-white/10 text-white/60 text-[7px] px-3 py-1 rounded-full font-black uppercase tracking-widest border border-white/5">LEG-SYS</span>
+                      <h3 className="text-2xl font-semibold text-white tracking-tight">{selectedPlan.name}</h3>
+                      <span className="bg-white/5 text-white/40 text-[7px] px-3 py-1 rounded-full font-bold uppercase tracking-widest border border-white/5">SISTEMA</span>
                     </div>
 
-                    <div className="flex items-baseline gap-2">
-                      <span className="text-sm font-medium text-white/40">R$</span>
-                      <span className="text-6xl font-extrabold text-white tracking-tighter">
+                    <div className="flex items-baseline gap-1.5">
+                      <span className="text-xs font-medium text-white/30">R$</span>
+                      <span className="text-5xl font-bold text-white tracking-tighter">
                         {selectedPlan.price.toLocaleString('pt-BR', { minimumFractionDigits: 2 }).split(',')[0]}
                       </span>
                       <div className="flex flex-col">
-                        <span className="text-lg font-bold text-white/80 -mb-1">,{selectedPlan.price.toLocaleString('pt-BR', { minimumFractionDigits: 2 }).split(',')[1]}</span>
-                        <span className="text-[9px] text-white/40 font-bold uppercase tracking-widest">/mês</span>
+                        <span className="text-base font-semibold text-white/70 -mb-1">,{selectedPlan.price.toLocaleString('pt-BR', { minimumFractionDigits: 2 }).split(',')[1]}</span>
+                        <span className="text-[8px] text-white/30 font-bold uppercase tracking-widest">/mês</span>
                       </div>
                     </div>
                   </div>
 
-                  <ul className="space-y-5 mb-8">
+                  <ul className="space-y-4 mb-8">
                     {selectedPlan.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-center gap-4">
-                        <div className="bg-white/10 rounded-full p-1 border border-white/10 shadow-inner">
-                          <Check size={10} className="text-white" strokeWidth={4} />
+                      <li key={idx} className="flex items-center gap-3">
+                        <div className="bg-white/5 rounded-full p-1 border border-white/5">
+                          <Check size={9} className="text-white/80" strokeWidth={3} />
                         </div>
-                        <span className="text-[13px] text-white/70 font-medium tracking-wide">{feature}</span>
+                        <span className="text-xs text-white/60 font-medium tracking-tight">{feature}</span>
                       </li>
                     ))}
                   </ul>
@@ -441,18 +441,17 @@ const Checkout: React.FC<CheckoutProps> = ({ onComplete }) => {
               )}
             </div>
 
-            <div className="space-y-6">
-              <div className="bg-white/[0.03] rounded-3xl p-6 border border-white/10 shadow-inner relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent pointer-events-none"></div>
+            <div className="space-y-5">
+              <div className="bg-white/[0.02] rounded-2xl p-6 border border-white/5 relative overflow-hidden">
                 <div className="flex justify-between items-center mb-4 relative z-10">
-                  <span className="text-white/40 text-[9px] font-bold uppercase tracking-[0.2em]">Total do Investimento</span>
-                  <span className="text-white font-extrabold text-2xl tracking-tighter">
+                  <span className="text-white/30 text-[8px] font-semibold uppercase tracking-[0.2em]">Total</span>
+                  <span className="text-white font-bold text-xl tracking-tight">
                     R$ {selectedPlan ? selectedPlan.price.toLocaleString('pt-BR', { minimumFractionDigits: 2 }) : '0,00'}
                   </span>
                 </div>
                 <div className="flex justify-between items-center pt-4 border-t border-white/5 relative z-10">
-                  <span className="text-white/30 text-[8px] font-bold uppercase tracking-[0.2em]">Taxa de Adesão</span>
-                  <span className="text-emerald-400 font-black text-[10px] uppercase tracking-widest bg-emerald-400/10 px-3 py-1 rounded-full border border-emerald-400/20">Grátis</span>
+                  <span className="text-white/20 text-[7px] font-semibold uppercase tracking-[0.2em]">Taxa de Adesão</span>
+                  <span className="text-emerald-400 font-bold text-[9px] uppercase tracking-widest bg-emerald-400/5 px-2.5 py-1 rounded-lg border border-emerald-400/10">FREE</span>
                 </div>
               </div>
             </div>
