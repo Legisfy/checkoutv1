@@ -221,7 +221,7 @@ const Checkout: React.FC<CheckoutProps> = ({ onComplete }) => {
           {[1, 2, 3].map((step) => (
             <React.Fragment key={step}>
               <div className="flex items-center gap-2">
-                <div className={`w-8 h-8 rounded-lg flex items-center justify-center font-black text-[10px] transition-all duration-500 ${currentStep === step
+                <div className={`w-8 h-8 rounded-lg flex items-center justify-center font-bold text-[10px] transition-all duration-500 ${currentStep === step
                   ? 'bg-white text-black shadow-lg shadow-white/10 scale-105'
                   : currentStep > step
                     ? 'bg-emerald-500 text-white'
@@ -229,7 +229,7 @@ const Checkout: React.FC<CheckoutProps> = ({ onComplete }) => {
                   }`}>
                   {currentStep > step ? <Check size={14} /> : step}
                 </div>
-                <span className={`text-[9px] font-black uppercase tracking-[0.2em] hidden sm:block ${currentStep === step ? 'text-white' : 'text-slate-600'}`}>
+                <span className={`text-[9px] font-bold uppercase tracking-[0.15em] hidden sm:block ${currentStep === step ? 'text-white' : 'text-slate-600'}`}>
                   {step === 1 ? 'Identificação' : step === 2 ? 'Endereço' : 'Pagamento'}
                 </span>
               </div>
@@ -238,12 +238,12 @@ const Checkout: React.FC<CheckoutProps> = ({ onComplete }) => {
           ))}
         </div>
 
-        <h1 className="text-3xl font-black tracking-tighter text-white mb-2">
-          {currentStep === 1 && <>Dados <span className="text-slate-400 font-medium">Pessoais</span></>}
-          {currentStep === 2 && <>Seu <span className="text-slate-400 font-medium">Endereço</span></>}
-          {currentStep === 3 && <>Forma de <span className="text-slate-400 font-medium">Pagamento</span></>}
+        <h1 className="text-3xl font-bold tracking-tight text-white mb-2">
+          {currentStep === 1 && <>Dados <span className="text-slate-400 font-normal">Pessoais</span></>}
+          {currentStep === 2 && <>Seu <span className="text-slate-400 font-normal">Endereço</span></>}
+          {currentStep === 3 && <>Forma de <span className="text-slate-400 font-normal">Pagamento</span></>}
         </h1>
-        <p className="text-slate-500 text-[9px] font-black uppercase tracking-[0.2em] max-w-xl opacity-60">
+        <p className="text-slate-500 text-[9px] font-bold uppercase tracking-[0.15em] max-w-xl opacity-60">
           Transação segura e processamento imediato
         </p>
       </header>
@@ -256,7 +256,7 @@ const Checkout: React.FC<CheckoutProps> = ({ onComplete }) => {
               {currentStep === 1 && (
                 <div className="space-y-6">
                   <div className="flex flex-col gap-1 mb-2">
-                    <h2 className="text-base font-black text-white uppercase tracking-tighter italic flex items-center gap-2">
+                    <h2 className="text-base font-bold text-white uppercase tracking-tight flex items-center gap-2">
                       <User size={18} className="text-slate-400" />
                       Identificação
                     </h2>
@@ -296,7 +296,7 @@ const Checkout: React.FC<CheckoutProps> = ({ onComplete }) => {
                       className={`flex-1 py-4 px-2 rounded-xl border transition-all flex flex-col items-center gap-2 ${formData.paymentMethod === 'credit_card' ? 'border-white bg-white/5 text-white ring-1 ring-white/10' : 'border-slate-800 bg-transparent text-slate-600 hover:border-slate-600'}`}
                     >
                       <CreditCard size={20} />
-                      <span className="text-[9px] font-black uppercase tracking-[0.15em]">Cartão</span>
+                      <span className="text-[9px] font-bold uppercase tracking-[0.15em]">Cartão</span>
                     </button>
                     <button
                       type="button"
@@ -304,7 +304,7 @@ const Checkout: React.FC<CheckoutProps> = ({ onComplete }) => {
                       className={`flex-1 py-4 px-2 rounded-xl border transition-all flex flex-col items-center gap-2 ${formData.paymentMethod === 'pix' ? 'border-white bg-white/5 text-white ring-1 ring-white/10' : 'border-slate-800 bg-transparent text-slate-600 hover:border-slate-600'}`}
                     >
                       <QrCode size={20} />
-                      <span className="text-[9px] font-black uppercase tracking-[0.15em]">PIX</span>
+                      <span className="text-[9px] font-bold uppercase tracking-[0.15em]">PIX</span>
                     </button>
                     <button
                       type="button"
@@ -312,7 +312,7 @@ const Checkout: React.FC<CheckoutProps> = ({ onComplete }) => {
                       className={`flex-1 py-4 px-2 rounded-xl border transition-all flex flex-col items-center gap-2 ${formData.paymentMethod === 'boleto' ? 'border-white bg-white/5 text-white ring-1 ring-white/10' : 'border-slate-800 bg-transparent text-slate-600 hover:border-slate-600'}`}
                     >
                       <FileText size={20} />
-                      <span className="text-[9px] font-black uppercase tracking-[0.15em]">Boleto</span>
+                      <span className="text-[9px] font-bold uppercase tracking-[0.15em]">Boleto</span>
                     </button>
                   </div>
 
@@ -330,14 +330,14 @@ const Checkout: React.FC<CheckoutProps> = ({ onComplete }) => {
                   {formData.paymentMethod === 'pix' && (
                     <div className="bg-white/5 border border-white/10 p-6 rounded-2xl text-center">
                       <Zap size={24} className="text-white mx-auto mb-2" />
-                      <p className="text-white text-[10px] font-black uppercase tracking-[0.2em]">ATIVAÇÃO IMEDIATA</p>
+                      <p className="text-white text-[10px] font-bold uppercase tracking-[0.15em]">ATIVAÇÃO IMEDIATA</p>
                     </div>
                   )}
 
                   {formData.paymentMethod === 'boleto' && (
                     <div className="bg-slate-900/50 border border-slate-800 p-6 rounded-2xl text-center">
                       <FileText size={24} className="text-slate-500 mx-auto mb-2" />
-                      <p className="text-slate-400 text-[10px] font-black uppercase tracking-[0.2em]">BOLETO BANCÁRIO</p>
+                      <p className="text-slate-400 text-[10px] font-bold uppercase tracking-[0.15em]">BOLETO BANCÁRIO</p>
                     </div>
                   )}
                 </div>
@@ -350,7 +350,7 @@ const Checkout: React.FC<CheckoutProps> = ({ onComplete }) => {
                   <button
                     type="button"
                     onClick={prevStep}
-                    className="flex items-center gap-2 text-slate-500 hover:text-white font-black text-[10px] tracking-[0.15em] transition-all"
+                    className="flex items-center gap-2 text-slate-500 hover:text-white font-bold text-[10px] tracking-[0.15em] transition-all"
                   >
                     <ArrowLeft size={16} />
                     VOLTAR
@@ -360,13 +360,13 @@ const Checkout: React.FC<CheckoutProps> = ({ onComplete }) => {
                 <button
                   type="submit"
                   disabled={!isStepValid() || loading}
-                  className="px-8 py-3.5 aura-button-gradient font-black rounded-xl transition-all flex items-center justify-center gap-3 disabled:opacity-20 disabled:cursor-not-allowed group shadow-xl"
+                  className="px-8 py-3.5 aura-button-gradient font-bold rounded-xl transition-all flex items-center justify-center gap-3 disabled:opacity-20 disabled:cursor-not-allowed group shadow-xl"
                 >
                   {loading ? (
                     <div className="w-4 h-4 border-2 border-black/20 border-t-black rounded-full animate-spin" />
                   ) : (
                     <>
-                      <span className="text-[10px] uppercase tracking-[0.2em]">{currentStep === 3 ? "FINALIZAR" : "PRÓXIMO"}</span>
+                      <span className="text-[10px] uppercase tracking-[0.15em]">{currentStep === 3 ? "FINALIZAR" : "PRÓXIMO"}</span>
                       {currentStep < 3 ? <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" /> : <Lock size={18} />}
                     </>
                   )}
@@ -379,7 +379,7 @@ const Checkout: React.FC<CheckoutProps> = ({ onComplete }) => {
                   <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" className="h-4 w-auto object-contain" alt="Mastercard" />
                   <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Logo_Pix_Brasil.png" className="h-4 w-auto object-contain" alt="Pix" />
                 </div>
-                <div className="flex items-center gap-1.5 text-[8px] font-black text-slate-400 uppercase tracking-widest">
+                <div className="flex items-center gap-1.5 text-[8px] font-bold text-slate-400 uppercase tracking-widest">
                   <ShieldCheck size={12} />
                   SECURITY 256-BIT
                 </div>
@@ -393,7 +393,7 @@ const Checkout: React.FC<CheckoutProps> = ({ onComplete }) => {
             {/* Metallic Shine Effect */}
             <div className="absolute -inset-[100%] bg-gradient-to-tr from-transparent via-white/[0.05] to-transparent pointer-events-none group-hover/card:animate-[shine_3s_infinite] rotate-45 transform"></div>
 
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 bg-white/10 backdrop-blur-md text-white text-[7px] font-black px-5 py-2 rounded-b-2xl uppercase tracking-[0.3em] z-10 border-x border-b border-white/10 shadow-lg">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 bg-white/10 backdrop-blur-md text-white text-[7px] font-bold px-5 py-2 rounded-b-2xl uppercase tracking-[0.3em] z-10 border-x border-b border-white/10 shadow-lg">
               SISTEMA PREMIUM
             </div>
 
@@ -401,7 +401,7 @@ const Checkout: React.FC<CheckoutProps> = ({ onComplete }) => {
               {plansLoading ? (
                 <div className="flex flex-col items-center justify-center py-12">
                   <div className="w-8 h-8 border-4 border-black/10 border-t-black rounded-full animate-spin"></div>
-                  <p className="mt-4 text-[10px] font-black uppercase tracking-widest text-black/40">Carregando Plano...</p>
+                  <p className="mt-4 text-[10px] font-bold uppercase tracking-widest text-black/40">Carregando Plano...</p>
                 </div>
               ) : selectedPlan ? (
                 <>
