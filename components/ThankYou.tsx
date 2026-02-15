@@ -39,7 +39,7 @@ const ThankYou: React.FC<ThankYouProps> = ({ orderData }) => {
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-10">
         {/* Left Card: Summary */}
-        <div className="lg:col-span-6 bg-[#0d1017] border border-white/5 rounded-[2.5rem] p-8 md:p-10 backdrop-blur-2xl shadow-xl ring-1 ring-white/5 flex flex-col justify-between">
+        <div className="lg:col-span-6 bg-white/[0.02] border border-white/5 rounded-[2.5rem] p-8 md:p-10 backdrop-blur-3xl shadow-xl ring-1 ring-white/5 flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between mb-8">
               <h3 className="text-lg font-bold flex items-center gap-3 text-white uppercase tracking-tight">
@@ -79,7 +79,7 @@ const ThankYou: React.FC<ThankYouProps> = ({ orderData }) => {
         </div>
 
         {/* Right Card: Action (PIX or Panel) - METALLIC THEME */}
-        <div className="lg:col-span-6 bg-gradient-to-br from-[#e2e8f0] via-[#ffffff] to-[#94a3b8] rounded-[2.5rem] p-8 md:p-10 shadow-2xl flex flex-col items-center justify-center relative overflow-hidden group">
+        <div className="lg:col-span-6 bg-gradient-to-br from-[#ffffff] via-[#e2e8f0] to-[#cbd5e1] rounded-[2.5rem] p-8 md:p-10 shadow-2xl flex flex-col items-center justify-center relative overflow-hidden group">
           {/* Reflection Effect */}
           <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/40 to-transparent pointer-events-none"></div>
 
@@ -106,8 +106,8 @@ const ThankYou: React.FC<ThankYouProps> = ({ orderData }) => {
                 <button
                   onClick={handleCopy}
                   className={`w-full py-5 rounded-xl font-bold text-[10px] tracking-[0.15em] flex items-center justify-center gap-3 transition-all transform active:scale-95 shadow-lg ${copied
-                      ? 'bg-emerald-500 text-white'
-                      : 'bg-black text-white hover:bg-black/90'
+                    ? 'bg-emerald-500 text-white'
+                    : 'bg-black text-white hover:bg-black/90'
                     }`}
                 >
                   {copied ? <CheckCircle size={18} /> : <Copy size={18} />}

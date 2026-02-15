@@ -250,7 +250,7 @@ const Checkout: React.FC<CheckoutProps> = ({ onComplete }) => {
 
       <div className="flex flex-col lg:flex-row gap-6 items-stretch">
         <div className="w-full lg:flex-1 flex flex-col">
-          <form id="checkout-form" onSubmit={handleSubmit} className="flex-1 bg-[#0d1017] rounded-[2rem] border border-white/5 p-6 md:p-8 shadow-2xl flex flex-col justify-between relative overflow-hidden ring-1 ring-white/5 backdrop-blur-md">
+          <form id="checkout-form" onSubmit={handleSubmit} className="flex-1 bg-white/[0.02] rounded-[2rem] border border-white/5 p-6 md:p-8 shadow-2xl flex flex-col justify-between relative overflow-hidden backdrop-blur-3xl ring-1 ring-white/5">
             <div className="animate-in fade-in slide-in-from-right-4 duration-500">
 
               {currentStep === 1 && (
@@ -389,7 +389,7 @@ const Checkout: React.FC<CheckoutProps> = ({ onComplete }) => {
         </div>
 
         <div className="w-full lg:w-[380px] flex flex-col">
-          <div className="flex-1 bg-white/[0.02] backdrop-blur-2xl border border-white/5 rounded-[2rem] p-8 shadow-2xl relative overflow-hidden flex flex-col justify-between group/card">
+          <div className="flex-1 bg-white/[0.03] backdrop-blur-3xl border border-white/10 rounded-[2rem] p-8 shadow-2xl relative overflow-hidden flex flex-col justify-between group/card">
             {/* Metallic Shine Effect */}
             <div className="absolute -inset-[100%] bg-gradient-to-tr from-transparent via-white/[0.05] to-transparent pointer-events-none group-hover/card:animate-[shine_3s_infinite] rotate-45 transform"></div>
 
