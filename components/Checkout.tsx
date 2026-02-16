@@ -52,6 +52,12 @@ const Checkout: React.FC<CheckoutProps> = ({ onComplete }) => {
         });
         const data = await response.json();
 
+        console.log('=== DEBUG PLANS ===');
+        console.log('Response status:', response.status);
+        console.log('Response data:', data);
+        console.log('Data length:', data?.length);
+        console.log('==================');
+
         const searchParams = new URLSearchParams(window.location.search);
         const planParam = searchParams.get('plan');
         const cycleParam = searchParams.get('cycle');
