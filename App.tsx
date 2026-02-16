@@ -30,7 +30,7 @@ const App: React.FC = () => {
 
           <div className="space-y-6">
             <img
-              src="https://wvvxstgpjodmfxpekhkf.supabase.co/storage/v1/object/public/LEGISFY/logo%20branca%20legisfy.png"
+              src="https://wvvxstgpjodmfxpekhkf.supabase.co/storage/v1/object/public/LEGISFY/legisfy%20branco.png"
               alt="Legisfy Logo"
               className="h-14 w-auto mx-auto opacity-100"
               onError={(e) => {
