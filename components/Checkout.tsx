@@ -272,7 +272,7 @@ const Checkout: React.FC<CheckoutProps> = ({ onComplete }) => {
 
       <div className="flex flex-col lg:flex-row gap-6 items-stretch">
         <div className="w-full lg:flex-1 flex flex-col">
-          <form id="checkout-form" onSubmit={handleSubmit} className="flex-1 bg-white rounded-[2rem] border border-gray-200 p-6 md:p-8 shadow-lg flex flex-col justify-between relative overflow-hidden">
+          <form id="checkout-form" onSubmit={handleSubmit} className="flex-1 bg-white rounded-[2rem] border border-gray-200 p-6 md:p-8 shadow-2xl flex flex-col justify-between relative overflow-hidden">
             <div className="animate-in fade-in slide-in-from-right-4 duration-500">
 
               {currentStep === 1 && (
@@ -411,7 +411,7 @@ const Checkout: React.FC<CheckoutProps> = ({ onComplete }) => {
         </div>
 
         <div className="w-full lg:w-[380px] flex flex-col">
-          <div className="flex-1 bg-white border border-gray-200 rounded-[2rem] p-8 shadow-lg relative overflow-hidden flex flex-col justify-between group/card">
+          <div className="flex-1 bg-white border border-gray-200 rounded-[2rem] p-8 shadow-2xl relative overflow-hidden flex flex-col justify-between group/card">
             {/* Subtle shine effect */}
             <div className="absolute -inset-[100%] bg-gradient-to-tr from-transparent via-gray-100/50 to-transparent pointer-events-none group-hover/card:animate-[shine_3s_infinite] rotate-45 transform"></div>
 
@@ -464,7 +464,7 @@ const Checkout: React.FC<CheckoutProps> = ({ onComplete }) => {
             </div>
 
             <div className="space-y-5">
-              <div className="bg-gray-50 rounded-2xl p-6 border border-gray-200 relative overflow-hidden">
+              <div className="bg-gray-50 rounded-2xl p-6 border border-gray-200 relative overflow-hidden shadow-lg">
                 <div className="flex justify-between items-center mb-4 relative z-10">
                   <span className="text-gray-500 text-[8px] font-semibold uppercase tracking-[0.2em]">Total</span>
                   <span className="text-gray-900 font-bold text-xl tracking-tight">

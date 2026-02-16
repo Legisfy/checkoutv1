@@ -15,7 +15,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col overflow-x-hidden bg-white">
+    <div className="min-h-screen flex flex-col overflow-x-hidden bg-[#f5f5f7]">
       <main className="flex-1 flex flex-col pt-4 md:pt-8 pb-4 overflow-y-auto">
         {!isFinished ? (
           <Checkout onComplete={handleComplete} />
@@ -24,7 +24,7 @@ const App: React.FC = () => {
         )}
       </main>
 
-      <footer className="w-full pb-32 pt-12 px-6 shrink-0 bg-white">
+      <footer className="w-full pb-32 pt-12 px-6 shrink-0 bg-[#f5f5f7]">
         <div className="max-w-md mx-auto flex flex-col items-center text-center">
           <div className="w-12 h-[1px] bg-gradient-to-r from-transparent via-gray-300 to-transparent mb-8"></div>
 
