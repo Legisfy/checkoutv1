@@ -39,6 +39,7 @@ const Checkout: React.FC<CheckoutProps> = ({ onComplete }) => {
   const [cepLoading, setCepLoading] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState<Plan | null>(null);
   const [plansLoading, setPlansLoading] = useState(true);
+  const [billingCycle, setBillingCycle] = useState<'monthly' | 'yearly'>('monthly');
 
   useEffect(() => {
     const fetchPlans = async () => {
@@ -50,8 +51,29 @@ const Checkout: React.FC<CheckoutProps> = ({ onComplete }) => {
           }
         });
         const data = await response.json();
+
+        const searchParams = new URLSearchParams(window.location.search);
+        const planParam = searchParams.get('plan');
+        const cycleParam = searchParams.get('cycle');
+
+        if (cycleParam === 'yearly') {
+          setBillingCycle('yearly');
+        }
+
         if (data && data.length > 0) {
-          setSelectedPlan(data[0]);
+          let planToSelect = data[0];
+
+          if (planParam) {
+            const normalizeString = (str: string) => str.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+            const targetPlan = normalizeString(planParam);
+
+            const foundPlan = data.find((p: Plan) => normalizeString(p.name).includes(targetPlan));
+            if (foundPlan) {
+              planToSelect = foundPlan;
+            }
+          }
+
+          setSelectedPlan(planToSelect);
         }
       } catch (error) {
         console.error("Erro ao carregar planos:", error);
@@ -418,7 +440,7 @@ const Checkout: React.FC<CheckoutProps> = ({ onComplete }) => {
                       </span>
                       <div className="flex flex-col">
                         <span className="text-base font-semibold text-white/70 -mb-1">,{selectedPlan.price.toLocaleString('pt-BR', { minimumFractionDigits: 2 }).split(',')[1]}</span>
-                        <span className="text-[8px] text-white/30 font-bold uppercase tracking-widest">/mês</span>
+                        <span className="text-[8px] text-white/30 font-bold uppercase tracking-widest">/{billingCycle === 'monthly' ? 'mês' : 'ano'}</span>
                       </div>
                     </div>
                   </div>
