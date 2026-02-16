@@ -244,45 +244,45 @@ const Checkout: React.FC<CheckoutProps> = ({ onComplete }) => {
             <React.Fragment key={step}>
               <div className="flex items-center gap-2">
                 <div className={`w-8 h-8 rounded-lg flex items-center justify-center font-bold text-[10px] transition-all duration-500 ${currentStep === step
-                  ? 'bg-white text-black shadow-lg shadow-white/10 scale-105'
+                  ? 'bg-black text-white shadow-lg scale-105'
                   : currentStep > step
                     ? 'bg-emerald-500 text-white'
-                    : 'bg-slate-900/80 text-slate-500 border border-slate-800/50'
+                    : 'bg-gray-100 text-gray-400 border border-gray-200'
                   }`}>
                   {currentStep > step ? <Check size={14} /> : step}
                 </div>
-                <span className={`text-[9px] font-bold uppercase tracking-[0.15em] hidden sm:block ${currentStep === step ? 'text-white' : 'text-slate-600'}`}>
+                <span className={`text-[9px] font-bold uppercase tracking-[0.15em] hidden sm:block ${currentStep === step ? 'text-gray-900' : 'text-gray-400'}`}>
                   {step === 1 ? 'Identificação' : step === 2 ? 'Endereço' : 'Pagamento'}
                 </span>
               </div>
-              {step < 3 && <div className="h-[1px] w-6 sm:w-8 bg-slate-800/50 mx-1 rounded-full" />}
+              {step < 3 && <div className="h-[1px] w-6 sm:w-8 bg-gray-200 mx-1 rounded-full" />}
             </React.Fragment>
           ))}
         </div>
 
-        <h1 className="text-3xl font-bold tracking-tight text-white mb-2">
-          {currentStep === 1 && <>Dados <span className="text-slate-400 font-normal">Pessoais</span></>}
-          {currentStep === 2 && <>Seu <span className="text-slate-400 font-normal">Endereço</span></>}
-          {currentStep === 3 && <>Forma de <span className="text-slate-400 font-normal">Pagamento</span></>}
+        <h1 className="text-3xl font-bold tracking-tight text-gray-900 mb-2">
+          {currentStep === 1 && <>Dados <span className="text-gray-500 font-normal">Pessoais</span></>}
+          {currentStep === 2 && <>Seu <span className="text-gray-500 font-normal">Endereço</span></>}
+          {currentStep === 3 && <>Forma de <span className="text-gray-500 font-normal">Pagamento</span></>}
         </h1>
-        <p className="text-slate-500 text-[9px] font-bold uppercase tracking-[0.15em] max-w-xl opacity-60">
+        <p className="text-gray-500 text-[9px] font-bold uppercase tracking-[0.15em] max-w-xl">
           Transação segura e processamento imediato
         </p>
       </header>
 
       <div className="flex flex-col lg:flex-row gap-6 items-stretch">
         <div className="w-full lg:flex-1 flex flex-col">
-          <form id="checkout-form" onSubmit={handleSubmit} className="flex-1 bg-white/[0.02] rounded-[2rem] border border-white/5 p-6 md:p-8 shadow-2xl flex flex-col justify-between relative overflow-hidden backdrop-blur-3xl ring-1 ring-white/5">
+          <form id="checkout-form" onSubmit={handleSubmit} className="flex-1 bg-white rounded-[2rem] border border-gray-200 p-6 md:p-8 shadow-lg flex flex-col justify-between relative overflow-hidden">
             <div className="animate-in fade-in slide-in-from-right-4 duration-500">
 
               {currentStep === 1 && (
                 <div className="space-y-6">
                   <div className="flex flex-col gap-1 mb-2">
-                    <h2 className="text-base font-bold text-white uppercase tracking-tight flex items-center gap-2">
-                      <User size={18} className="text-slate-400" />
+                    <h2 className="text-base font-bold text-gray-900 uppercase tracking-tight flex items-center gap-2">
+                      <User size={18} className="text-gray-400" />
                       Identificação
                     </h2>
-                    <p className="text-[10px] text-slate-500 font-medium tracking-wide">Dados para faturamento eletrônico.</p>
+                    <p className="text-[10px] text-gray-500 font-medium tracking-wide">Dados para faturamento eletrônico.</p>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -299,7 +299,7 @@ const Checkout: React.FC<CheckoutProps> = ({ onComplete }) => {
                   <div className="relative">
                     <Input label="CEP" name="postalCode" required value={formData.postalCode} onChange={handleChange} placeholder="00000-000" />
                     {cepLoading && (
-                      <div className="absolute right-3 bottom-2.5 animate-spin w-3.5 h-3.5 border-2 border-white/10 border-t-white rounded-full"></div>
+                      <div className="absolute right-3 bottom-2.5 animate-spin w-3.5 h-3.5 border-2 border-gray-200 border-t-gray-900 rounded-full"></div>
                     )}
                   </div>
                   <Input label="ENDEREÇO" name="address" required className="md:col-span-2" value={formData.address} onChange={handleChange} placeholder="Ex: Praça dos Três Poderes" />
@@ -315,7 +315,7 @@ const Checkout: React.FC<CheckoutProps> = ({ onComplete }) => {
                     <button
                       type="button"
                       onClick={() => handlePaymentMethod('credit_card')}
-                      className={`flex-1 py-4 px-2 rounded-xl border transition-all flex flex-col items-center gap-2 ${formData.paymentMethod === 'credit_card' ? 'border-white bg-white/5 text-white ring-1 ring-white/10' : 'border-slate-800 bg-transparent text-slate-600 hover:border-slate-600'}`}
+                      className={`flex-1 py-4 px-2 rounded-xl border transition-all flex flex-col items-center gap-2 ${formData.paymentMethod === 'credit_card' ? 'border-blue-500 bg-blue-50 text-blue-600 ring-1 ring-blue-100' : 'border-gray-200 bg-white text-gray-600 hover:border-gray-300'}`}
                     >
                       <CreditCard size={20} />
                       <span className="text-[9px] font-bold uppercase tracking-[0.15em]">Cartão</span>
@@ -323,7 +323,7 @@ const Checkout: React.FC<CheckoutProps> = ({ onComplete }) => {
                     <button
                       type="button"
                       onClick={() => handlePaymentMethod('pix')}
-                      className={`flex-1 py-4 px-2 rounded-xl border transition-all flex flex-col items-center gap-2 ${formData.paymentMethod === 'pix' ? 'border-white bg-white/5 text-white ring-1 ring-white/10' : 'border-slate-800 bg-transparent text-slate-600 hover:border-slate-600'}`}
+                      className={`flex-1 py-4 px-2 rounded-xl border transition-all flex flex-col items-center gap-2 ${formData.paymentMethod === 'pix' ? 'border-blue-500 bg-blue-50 text-blue-600 ring-1 ring-blue-100' : 'border-gray-200 bg-white text-gray-600 hover:border-gray-300'}`}
                     >
                       <QrCode size={20} />
                       <span className="text-[9px] font-bold uppercase tracking-[0.15em]">PIX</span>
@@ -331,7 +331,7 @@ const Checkout: React.FC<CheckoutProps> = ({ onComplete }) => {
                     <button
                       type="button"
                       onClick={() => handlePaymentMethod('boleto')}
-                      className={`flex-1 py-4 px-2 rounded-xl border transition-all flex flex-col items-center gap-2 ${formData.paymentMethod === 'boleto' ? 'border-white bg-white/5 text-white ring-1 ring-white/10' : 'border-slate-800 bg-transparent text-slate-600 hover:border-slate-600'}`}
+                      className={`flex-1 py-4 px-2 rounded-xl border transition-all flex flex-col items-center gap-2 ${formData.paymentMethod === 'boleto' ? 'border-blue-500 bg-blue-50 text-blue-600 ring-1 ring-blue-100' : 'border-gray-200 bg-white text-gray-600 hover:border-gray-300'}`}
                     >
                       <FileText size={20} />
                       <span className="text-[9px] font-bold uppercase tracking-[0.15em]">Boleto</span>
@@ -350,16 +350,16 @@ const Checkout: React.FC<CheckoutProps> = ({ onComplete }) => {
                   )}
 
                   {formData.paymentMethod === 'pix' && (
-                    <div className="bg-white/5 border border-white/10 p-6 rounded-2xl text-center">
-                      <Zap size={24} className="text-white mx-auto mb-2" />
-                      <p className="text-white text-[10px] font-bold uppercase tracking-[0.15em]">ATIVAÇÃO IMEDIATA</p>
+                    <div className="bg-blue-50 border border-blue-100 p-6 rounded-2xl text-center">
+                      <Zap size={24} className="text-blue-600 mx-auto mb-2" />
+                      <p className="text-blue-600 text-[10px] font-bold uppercase tracking-[0.15em]">ATIVAÇÃO IMEDIATA</p>
                     </div>
                   )}
 
                   {formData.paymentMethod === 'boleto' && (
-                    <div className="bg-slate-900/50 border border-slate-800 p-6 rounded-2xl text-center">
-                      <FileText size={24} className="text-slate-500 mx-auto mb-2" />
-                      <p className="text-slate-400 text-[10px] font-bold uppercase tracking-[0.15em]">BOLETO BANCÁRIO</p>
+                    <div className="bg-gray-50 border border-gray-200 p-6 rounded-2xl text-center">
+                      <FileText size={24} className="text-gray-500 mx-auto mb-2" />
+                      <p className="text-gray-500 text-[10px] font-bold uppercase tracking-[0.15em]">BOLETO BANCÁRIO</p>
                     </div>
                   )}
                 </div>
@@ -367,12 +367,12 @@ const Checkout: React.FC<CheckoutProps> = ({ onComplete }) => {
             </div>
 
             <div className="mt-8">
-              <div className="flex items-center justify-between gap-6 mb-6 pt-6 border-t border-white/5">
+              <div className="flex items-center justify-between gap-6 mb-6 pt-6 border-t border-gray-200">
                 {currentStep > 1 ? (
                   <button
                     type="button"
                     onClick={prevStep}
-                    className="flex items-center gap-2 text-slate-500 hover:text-white font-bold text-[10px] tracking-[0.15em] transition-all"
+                    className="flex items-center gap-2 text-gray-500 hover:text-gray-900 font-bold text-[10px] tracking-[0.15em] transition-all"
                   >
                     <ArrowLeft size={16} />
                     VOLTAR
@@ -382,10 +382,10 @@ const Checkout: React.FC<CheckoutProps> = ({ onComplete }) => {
                 <button
                   type="submit"
                   disabled={!isStepValid() || loading}
-                  className="px-8 py-3.5 aura-button-gradient font-bold rounded-xl transition-all flex items-center justify-center gap-3 disabled:opacity-20 disabled:cursor-not-allowed group shadow-xl"
+                  className="px-8 py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-all flex items-center justify-center gap-3 disabled:opacity-40 disabled:cursor-not-allowed group shadow-lg"
                 >
                   {loading ? (
-                    <div className="w-4 h-4 border-2 border-black/20 border-t-black rounded-full animate-spin" />
+                    <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                   ) : (
                     <>
                       <span className="text-[10px] uppercase tracking-[0.15em]">{currentStep === 3 ? "FINALIZAR" : "PRÓXIMO"}</span>
@@ -395,13 +395,13 @@ const Checkout: React.FC<CheckoutProps> = ({ onComplete }) => {
                 </button>
               </div>
 
-              <div className="flex items-center justify-between pt-4 border-t border-white/5 opacity-40">
+              <div className="flex items-center justify-between pt-4 border-t border-gray-200 opacity-60">
                 <div className="flex items-center gap-6 grayscale">
                   <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" className="h-3 w-auto object-contain" alt="Visa" />
                   <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" className="h-4 w-auto object-contain" alt="Mastercard" />
                   <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Logo_Pix_Brasil.png" className="h-4 w-auto object-contain" alt="Pix" />
                 </div>
-                <div className="flex items-center gap-1.5 text-[8px] font-bold text-slate-400 uppercase tracking-widest">
+                <div className="flex items-center gap-1.5 text-[8px] font-bold text-gray-400 uppercase tracking-widest">
                   <ShieldCheck size={12} />
                   SECURITY 256-BIT
                 </div>
@@ -411,36 +411,36 @@ const Checkout: React.FC<CheckoutProps> = ({ onComplete }) => {
         </div>
 
         <div className="w-full lg:w-[380px] flex flex-col">
-          <div className="flex-1 bg-white/[0.03] backdrop-blur-3xl border border-white/10 rounded-[2rem] p-8 shadow-2xl relative overflow-hidden flex flex-col justify-between group/card">
-            {/* Metallic Shine Effect */}
-            <div className="absolute -inset-[100%] bg-gradient-to-tr from-transparent via-white/[0.05] to-transparent pointer-events-none group-hover/card:animate-[shine_3s_infinite] rotate-45 transform"></div>
+          <div className="flex-1 bg-white border border-gray-200 rounded-[2rem] p-8 shadow-lg relative overflow-hidden flex flex-col justify-between group/card">
+            {/* Subtle shine effect */}
+            <div className="absolute -inset-[100%] bg-gradient-to-tr from-transparent via-gray-100/50 to-transparent pointer-events-none group-hover/card:animate-[shine_3s_infinite] rotate-45 transform"></div>
 
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 bg-white/10 backdrop-blur-md text-white text-[7px] font-bold px-5 py-2 rounded-b-2xl uppercase tracking-[0.3em] z-10 border-x border-b border-white/10 shadow-lg">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 bg-gray-100 border-gray-200 text-gray-700 text-[7px] font-bold px-5 py-2 rounded-b-2xl uppercase tracking-[0.3em] z-10 border-x border-b shadow-sm">
               SISTEMA PREMIUM
             </div>
 
             <div className="relative">
               {plansLoading ? (
                 <div className="flex flex-col items-center justify-center py-12">
-                  <div className="w-8 h-8 border-4 border-black/10 border-t-black rounded-full animate-spin"></div>
-                  <p className="mt-4 text-[10px] font-bold uppercase tracking-widest text-black/40">Carregando Plano...</p>
+                  <div className="w-8 h-8 border-4 border-gray-200 border-t-gray-900 rounded-full animate-spin"></div>
+                  <p className="mt-4 text-[10px] font-bold uppercase tracking-widest text-gray-400">Carregando Plano...</p>
                 </div>
               ) : selectedPlan ? (
                 <>
-                  <div className="mt-8 mb-8 pb-8 border-b border-white/5">
+                  <div className="mt-8 mb-8 pb-8 border-b border-gray-200">
                     <div className="flex items-center gap-3 mb-6">
-                      <h3 className="text-2xl font-semibold text-white tracking-tight">{selectedPlan.name}</h3>
-                      <span className="bg-white/5 text-white/40 text-[7px] px-3 py-1 rounded-full font-bold uppercase tracking-widest border border-white/5">SISTEMA</span>
+                      <h3 className="text-2xl font-semibold text-gray-900 tracking-tight">{selectedPlan.name}</h3>
+                      <span className="bg-gray-100 text-gray-600 text-[7px] px-3 py-1 rounded-full font-bold uppercase tracking-widest border border-gray-200">SISTEMA</span>
                     </div>
 
                     <div className="flex items-baseline gap-1.5">
-                      <span className="text-xs font-medium text-white/30">R$</span>
-                      <span className="text-5xl font-bold text-white tracking-tighter">
+                      <span className="text-xs font-medium text-gray-400">R$</span>
+                      <span className="text-5xl font-bold text-gray-900 tracking-tighter">
                         {selectedPlan.price.toLocaleString('pt-BR', { minimumFractionDigits: 2 }).split(',')[0]}
                       </span>
                       <div className="flex flex-col">
-                        <span className="text-base font-semibold text-white/70 -mb-1">,{selectedPlan.price.toLocaleString('pt-BR', { minimumFractionDigits: 2 }).split(',')[1]}</span>
-                        <span className="text-[8px] text-white/30 font-bold uppercase tracking-widest">/{billingCycle === 'monthly' ? 'mês' : 'ano'}</span>
+                        <span className="text-base font-semibold text-gray-600 -mb-1">,{selectedPlan.price.toLocaleString('pt-BR', { minimumFractionDigits: 2 }).split(',')[1]}</span>
+                        <span className="text-[8px] text-gray-400 font-bold uppercase tracking-widest">/{billingCycle === 'monthly' ? 'mês' : 'ano'}</span>
                       </div>
                     </div>
                   </div>
@@ -448,31 +448,31 @@ const Checkout: React.FC<CheckoutProps> = ({ onComplete }) => {
                   <ul className="space-y-4 mb-8">
                     {selectedPlan.features.map((feature, idx) => (
                       <li key={idx} className="flex items-center gap-3">
-                        <div className="bg-white/5 rounded-full p-1 border border-white/5">
-                          <Check size={9} className="text-white/80" strokeWidth={3} />
+                        <div className="bg-gray-100 rounded-full p-1 border border-gray-200">
+                          <Check size={9} className="text-gray-700" strokeWidth={3} />
                         </div>
-                        <span className="text-xs text-white/60 font-medium tracking-tight">{feature}</span>
+                        <span className="text-xs text-gray-600 font-medium tracking-tight">{feature}</span>
                       </li>
                     ))}
                   </ul>
                 </>
               ) : (
                 <div className="text-center py-12">
-                  <p className="text-black/40 font-bold">Nenhum plano ativo encontrado.</p>
+                  <p className="text-gray-400 font-bold">Nenhum plano ativo encontrado.</p>
                 </div>
               )}
             </div>
 
             <div className="space-y-5">
-              <div className="bg-white/[0.02] rounded-2xl p-6 border border-white/5 relative overflow-hidden">
+              <div className="bg-gray-50 rounded-2xl p-6 border border-gray-200 relative overflow-hidden">
                 <div className="flex justify-between items-center mb-4 relative z-10">
-                  <span className="text-white/30 text-[8px] font-semibold uppercase tracking-[0.2em]">Total</span>
-                  <span className="text-white font-bold text-xl tracking-tight">
+                  <span className="text-gray-500 text-[8px] font-semibold uppercase tracking-[0.2em]">Total</span>
+                  <span className="text-gray-900 font-bold text-xl tracking-tight">
                     R$ {selectedPlan ? selectedPlan.price.toLocaleString('pt-BR', { minimumFractionDigits: 2 }) : '0,00'}
                   </span>
                 </div>
-                <div className="flex justify-between items-center pt-4 border-t border-white/5 relative z-10">
-                  <span className="text-white/20 text-[7px] font-semibold uppercase tracking-[0.2em]">Taxa de Adesão</span>
+                <div className="flex justify-between items-center pt-4 border-t border-gray-200 relative z-10">
+                  <span className="text-gray-400 text-[7px] font-semibold uppercase tracking-[0.2em]">Taxa de Adesão</span>
                   <span className="text-emerald-400 font-bold text-[9px] uppercase tracking-widest bg-emerald-400/5 px-2.5 py-1 rounded-lg border border-emerald-400/10">FREE</span>
                 </div>
               </div>
