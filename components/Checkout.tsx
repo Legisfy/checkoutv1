@@ -5,7 +5,7 @@ import Input from './UI/Input';
 import { CheckoutFormData, PaymentMethod, Product, PersonType } from '../types';
 
 const SUPABASE_URL = "https://wvvxstgpjodmfxpekhkf.supabase.co";
-const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind2dnhzdGdwam9kbWZ4cGVraGtmIiwyb2xlIjoiYW5vbiIsImlhdCI6MTc3MTE1NzM2NCwiZXhwIjoyMDg2NzMzMzY0fQ.Ei2Q1NMMpFPmlzGzHz_9ZU2OpbjaGkoaNTozyv-06kQ";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind2dnhzdGdwam9kbWZ4cGVraGtmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzExNTczNjQsImV4cCI6MjA4NjczMzM2NH0.Ei2Q1NMMpFPmlzGzHz_9ZU2OpbjaGkoaNTozyv-06kQ";
 
 interface Plan extends Product {
   features: string[];
