@@ -7,7 +7,7 @@ export interface CheckoutFormData {
   email: string;
   phone: string;
   personType: PersonType;
-  document: string; // CPF or CNPJ
+  document: string; // CPF ou CNPJ
   postalCode: string;
   address: string;
   number: string;
@@ -18,6 +18,8 @@ export interface CheckoutFormData {
   cardExpiry?: string;
   cardCVC?: string;
   cardName?: string;
+  planName?: string;
+  planPrice?: number;
 }
 
 export interface Product {
@@ -26,4 +28,5 @@ export interface Product {
   price: number;
   description: string;
   image: string;
+  features: string[];
 }
